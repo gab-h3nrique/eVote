@@ -1,0 +1,39 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+//npx prisma migrate dev --name init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Votes {
+  id           Int @id @default(autoincrement())
+  title        String
+
+  options       Options[]
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  @@map("votes")
+}
+
+model Options {
+  id           Int @id @default(autoincrement())
+  title        String
+  count        Int
+
+  vote        Votes @relation(fields: [voteId], references: [id])
+  voteId      Int
+
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  @@map("options")
+}
+
+
