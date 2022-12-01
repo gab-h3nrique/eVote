@@ -14,13 +14,10 @@ function fetchApi() {
             cache: options?.cache || 'no-store',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
-                // 'Authorization': `Bearer ${await Cookie.get('auth')}`,
             },
             body: JSON.stringify(object)
         })
-        const data = await response.json()
-        return data
-      
+        return response.json()
     }
 
     async function get<JSON = any>(url: string, object: any = null, options:Options = null ): Promise<JSON> {
@@ -30,38 +27,10 @@ function fetchApi() {
             cache: options?.cache || 'no-store',
             headers: {
                 'Content-Type': 'application/json;charset=utf-8',
-                // 'Authorization': `Bearer ${await Cookie.get('auth')}`,
             },
         })
-        const data = await response.json()
-        return data
-      
+        return response.json()
     }
-
-    // async function auth<JSON = any>(url: string, object: any): Promise<JSON> {
-    //     const response = await fetch(url, {
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         headers: {
-    //             'Content-Type': 'application/json;charset=utf-8'
-    //         },
-    //         body: JSON.stringify(object)
-    //     })
-    //     const data = await response.json()
-    //     await Cookie.set('auth', data.accessToken, 360)
-    //     return data
-    // }
-
-    // async function signOut(): Promise<void> {
-    //     try{
-    //         await Cookie.expire('auth')
-    //         if(typeof window !== 'undefined') window.location.reload()
-
-    //     } catch(err){
-    //         console.log('An error occurred when logging out: ', err)
-    //         if(typeof window !== 'undefined') window.location.reload()
-    //     }
-    // }
 
     function absoluteUrl() {
         if(typeof window !== 'undefined')  return window.location.href
@@ -70,20 +39,6 @@ function fetchApi() {
     return {post, get, absoluteUrl}
 }
 
-
-
 const Api = fetchApi();
 
 export default Api
-
-
-
-// --------------------------------------
-
-// function absoluteUrl() {
-//     if(typeof window !== 'undefined') {
-//         const url = window.location.href
-//         return url
-//         // return window.location.hostname;
-//     }
-// }
