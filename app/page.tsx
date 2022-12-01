@@ -1,11 +1,11 @@
-// "use client"
+"use client"
 
-import './../styles/globals.css';
 import type { NextPage } from 'next'
 import Api from '../provider/http/api';
 import { use } from 'react';
+import HomePage from "../components/homePage"
 
-
+import './../styles/globals.css';
 
 async function handleVote() {
   return await Api.get('http://localhost:3000//api/teste', {a:'a'}, {cache: 'force-cache'})
@@ -18,16 +18,15 @@ async function url() {
 const Home: NextPage = (query) => {
   console.log(query)
 
-  const data:any = use(handleVote())
-  const a:any = use(url())
+  // const data:any = use(handleVote())
+  // const a:any = use(url())
 
   return (
     <>
-      <div className="flex justify-center items-center w-screen h-screen">
-      <div>
-          {data?.message}
+      <div className="w-screen h-screen flex justify-center items-center">
+        <HomePage />
       </div>
-      </div>
+      
     </>
   )
 }

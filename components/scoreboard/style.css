@@ -1,0 +1,30 @@
+#containerScoreboard {
+    margin-top: 4rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    gap: 6 rem;
+    padding: 4rem;
+    background: rgb(34, 63, 34);
+}
+
+.liNormal {
+    border: 1px solid gray;
+    padding: 4rem;
+    color: white;
+    border-radius: 8px;
+}
+
+.countVotes {
+    margin-left: 1rem;
+    padding: 2rem;
+    background: black;
+    border-radius: 50%;
+    font-size: 1.5rem;
+}
+
+.liEffect {
+background: red !important;
+}
+
