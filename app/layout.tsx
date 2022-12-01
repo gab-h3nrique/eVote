@@ -1,3 +1,4 @@
+
 import './../styles/globals.css';
 
 export default function RootLayout({
@@ -8,7 +9,9 @@ export default function RootLayout({
   return (
     <html>
       <head />
-      <body className="bg-indigo-50 ">{children}</body>
+      <body className="w-screen h-screen flex">
+        {children}
+        </body>
     </html>
   )
 }

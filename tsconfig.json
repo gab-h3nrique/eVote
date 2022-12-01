@@ -29,7 +29,7 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-  ],
+, "components/card/styles.css"  ],
   "exclude": [
     "node_modules"
   ]
